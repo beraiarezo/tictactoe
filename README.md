@@ -1,6 +1,7 @@
 # tictactoe
 
 ## Run Project
-### git clone project https://github.com/beraiarezo/tictactoe.git
+### git clone https://github.com/beraiarezo/tictactoe.git
+### git pull origin main
 ### npm install
 ### npm run
