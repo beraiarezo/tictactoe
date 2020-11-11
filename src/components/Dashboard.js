@@ -46,6 +46,7 @@ export const Dashboard = () => {
 
   const checkWinner = (x, y, arr) => {
     let winC = parseInt(winCount);
+    let finished = false;
     // vertically check
     let verticallyCounter = 0;
     for (let i = 0; i < arr[x].length; i++) {
@@ -58,6 +59,7 @@ export const Dashboard = () => {
       if (verticallyCounter === winC) {
         alert(`Player ${cursor} win`);
         setWon(true);
+        finished = true;
       }
     }
     // horizontaly counter
@@ -71,6 +73,7 @@ export const Dashboard = () => {
       if (horCounter === winC) {
         alert(`Player ${cursor} win`);
         setWon(true);
+        finished = true;
       }
     }
 
@@ -110,6 +113,7 @@ export const Dashboard = () => {
       if (diagonalCounterX === winC || diagonalCounterY === winC) {
         alert(`Player ${cursor} Win`);
         setWon(true);
+        finished = true;
       }
     }
 
@@ -135,11 +139,29 @@ export const Dashboard = () => {
         if (diagonalX === winC) {
           alert(`Player ${cursor} won`);
           setWon(true);
+          finished = true;
         }
       }
     }
 
     setCursors(cursor === "X" ? "0" : "X");
+    if (!finished) {
+      checkIfDraw();
+    }
+  };
+
+  const checkIfDraw = () => {
+    let draw = true;
+    for (let i = 0; i < cells.length; i++) {
+      for (let j = 0; j < cells[i].length; j++) {
+        if (cells[i][j].value === "") {
+          draw = false;
+        }
+      }
+    }
+    if (draw) {
+      alert("draw");
+    }
   };
 
   return (
