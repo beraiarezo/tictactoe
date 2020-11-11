@@ -147,19 +147,19 @@ export const Dashboard = () => {
       <h1>Tic Tac Toe</h1>
       <input
         type="number"
-        placeholder="columns"
+        placeholder="Columns"
         value={columns}
         onChange={(e) => setColumns(e.target.value)}
       />
       <input
         type="number"
-        placeholder="row"
+        placeholder="Row"
         value={rows}
         onChange={(e) => setRows(e.target.value)}
       />
       <input
         type="number"
-        placeholder="win count"
+        placeholder="Identifier win"
         value={winCount}
         onChange={(e) => setWinCount(e.target.value)}
       />
