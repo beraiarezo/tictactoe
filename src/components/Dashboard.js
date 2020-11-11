@@ -47,29 +47,24 @@ export const Dashboard = () => {
   const checkWinner = (x, y, arr) => {
     let winC = parseInt(winCount);
     let finished = false;
+
     // vertically check
     let verticallyCounter = 0;
     for (let i = 0; i < arr[x].length; i++) {
-      if (arr[x][i].value === cursor) {
-        verticallyCounter++;
-      } else {
-        verticallyCounter = 0;
-      }
+      verticallyCounter =
+        arr[x][i].value === cursor ? verticallyCounter + 1 : 0;
 
       if (verticallyCounter === winC) {
-        alert(`Player ${cursor} win`);
+        alert(`Player ${cursor} winnn`);
         setWon(true);
         finished = true;
       }
     }
+
     // horizontaly counter
     let horCounter = 0;
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i][y].value === cursor) {
-        horCounter++;
-      } else {
-        horCounter = 0;
-      }
+      horCounter = arr[i][y].value === cursor ? horCounter + 1 : 0;
       if (horCounter === winC) {
         alert(`Player ${cursor} win`);
         setWon(true);
@@ -82,32 +77,26 @@ export const Dashboard = () => {
     let diff = x > y ? x - y : y - x;
     for (let i = 0; i < arr.length; i++) {
       if (i === 0) {
-        if (arr[i][diff] && arr[i][diff].value === cursor) {
-          diagonalCounterX++;
-        } else {
-          diagonalCounterX = 0;
-        }
+        diagonalCounterX =
+          arr[i][diff] && arr[i][diff].value === cursor
+            ? diagonalCounterX + 1
+            : 0;
 
-        if (arr[i][y + x] && arr[i][y + x].value === cursor) {
-          diagonalCounterY++;
-        } else {
-          diagonalCounterY = 0;
-        }
+        diagonalCounterY =
+          arr[i][y + x] && arr[i][y + x].value === cursor
+            ? diagonalCounterY + 1
+            : 0;
       } else {
-        if (arr[i][y + x - i] && arr[i][y + x - i].value === cursor) {
-          diagonalCounterY++;
-        } else {
-          diagonalCounterY = 0;
-        }
+        diagonalCounterY =
+          arr[i][y + x - i] && arr[i][y + x - i].value === cursor
+            ? diagonalCounterY + 1
+            : 0;
 
-        if (
+        diagonalCounterX =
           arr[i][diff + parseInt(i)] &&
           arr[i][diff + parseInt(i)].value === cursor
-        ) {
-          diagonalCounterX++;
-        } else {
-          diagonalCounterX = 0;
-        }
+            ? diagonalCounterX + 1
+            : 0;
       }
 
       if (diagonalCounterX === winC || diagonalCounterY === winC) {
@@ -121,21 +110,16 @@ export const Dashboard = () => {
       let diagonalX = 0;
       for (let j = x - y; j < arr.length; j++) {
         if (j === diff) {
-          if (arr[j][diff - diff] && arr[j][diff - diff].value === cursor) {
-            diagonalX++;
-          } else {
-            diagonalX = 0;
-          }
+          diagonalX =
+            arr[j][0] && arr[j][0].value === cursor ? diagonalX + 1 : 0;
         } else {
-          if (
+          diagonalX =
             arr[j][parseInt(j) - diff] &&
             arr[j][parseInt(j) - diff].value === cursor
-          ) {
-            diagonalX++;
-          } else {
-            diagonalX = 0;
-          }
+              ? diagonalX + 1
+              : 0;
         }
+
         if (diagonalX === winC) {
           alert(`Player ${cursor} won`);
           setWon(true);
