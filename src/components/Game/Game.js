@@ -6,16 +6,15 @@ const Game = (props) => {
   const [cursor, setCursors] = useState("X");
 
   const handleClick = (x, y) => {
-    props.onCellClick(x, y, cursor);
+    props.onCellClick(x, y);
     setCursors(cursor === "X" ? "0" : "X");
   };
   return (
     <div className="game">
       <div className="game-board">
         <Board
-          highLights={["X"]}
           squares={props.cells}
-          onClick={(x, y) => handleClick(x, y)}
+          onClick={(x, y) => props.onCellClick(x, y)}
         />
       </div>
     </div>

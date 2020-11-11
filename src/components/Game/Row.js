@@ -1,16 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 
-function Square(props) {
+const Square = (props) => {
   return (
-    <button
-      className="square"
-      onClick={props.onClick}
-      style={props.isHighLight ? { backgroundColor: "Yellow" } : {}}
-    >
+    <button className="square" onClick={props.onClick}>
       {props.value.value}
     </button>
   );
-}
+};
 
 const Row = (props) => {
   const clicker = (rowIdx, colIdx) => {
@@ -20,15 +16,9 @@ const Row = (props) => {
   return (
     <div className="board-row">
       {props.row.map((col, colIdx) => {
-        const isHighLight =
-          props.highLights.filter((highLight) => {
-            return highLight.x === props.rowIdx && highLight.y === colIdx;
-          }).length > 0;
-
         return (
           <Square
             key={colIdx}
-            isHighLight={isHighLight}
             value={props.row[colIdx]}
             onClick={() => clicker(props.rowIdx, colIdx)}
           />
