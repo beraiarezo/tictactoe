@@ -13,15 +13,8 @@ code {
     monospace;
 }
 
-/*  gasatania styled componentebshi  */
-
-/* .game-board {
-  width: 100%;
-  overflow-y: scroll; */
-/* } */
 .board-wrapper {
   width: fit-content;
-  /* overflow-y: scroll; */
   display: flex;
 }
 
@@ -37,19 +30,10 @@ input {
   padding: 5px;
 }
 
-ol,
-ul {
-  padding-left: 30px;
-}
-
 .board-row:after {
   clear: both;
   content: "";
   display: table;
-}
-
-.status {
-  margin-bottom: 10px;
 }
 
 .square {
