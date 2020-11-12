@@ -39,7 +39,7 @@ export const Dashboard = () => {
         arr[x][y].value = cursor;
         setCells(arr);
         SearchCheckWay(x, y, arr, cursor, winCount);
-        checkWinner(x, y, arr);
+        // checkWinner(x, y, arr);
       }
     } else {
       alert("Please start game again.");

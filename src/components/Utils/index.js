@@ -17,15 +17,19 @@ export const SearchCheckWay = (x, y, arr, cursor, winCount) => {
     ) {
       data = SearchLeftTopToRigthBottom(x, y, cursor, arr, winCount);
     }
-    if (data.win) {
+    if (data && data.win) {
       return data;
     }
   }
 
+  //  if cell in middle
   let ZeroXPosition = x - 1 >= 0 ? true : false;
-  let MaxXPosition = x + 1 <= arr[x].length ? true : false;
+  let MaxXPosition = x + 1 < arr.length ? true : false;
   if (ZeroXPosition && MaxXPosition) {
-    console.log("middle");
+    if(arr[x - 1][y].value === "" || arr[x-1][y].value === cursor || arr[x + 1][y].value === "" || arr[x-1][y].value === cursor) {
+      console.log("heeree")
+      data = SearchTopToBottom(x, y, cursor, arr, winCount);
+    }
   }
 
   console.log(data, "dataa");
