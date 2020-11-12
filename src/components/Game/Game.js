@@ -2,15 +2,11 @@ import React from "react";
 import Board from "./Board";
 import PropTypes from "prop-types";
 
-const Game = ({ cells, onCellClick, showColors }) => {
+const Game = ({ cells, onCellClick }) => {
   return (
     <div className="game">
       <div className="game-board">
-        <Board
-          squares={cells}
-          onClick={(x, y) => onCellClick(x, y)}
-          showColors={showColors}
-        />
+        <Board squares={cells} onClick={(x, y) => onCellClick(x, y)} />
       </div>
     </div>
   );
@@ -19,7 +15,6 @@ const Game = ({ cells, onCellClick, showColors }) => {
 Game.propTypes = {
   cells: PropTypes.array.isRequired,
   onCellClick: PropTypes.func.isRequired,
-  showColors: PropTypes.bool.isRequired,
 };
 
 export default Game;
