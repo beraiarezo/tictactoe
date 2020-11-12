@@ -37,6 +37,7 @@ export const Dashboard = () => {
         cells[x][y].value = cursor;
         let caluclatedData = SearchCheckWay(x, y, cells, cursor, winCount);
         if (caluclatedData && caluclatedData.win) {
+          setWon(true);
         }
         setCells(cells);
         setCursors(cursor === "X" ? "0" : "X");
