@@ -2,7 +2,12 @@ import React from "react";
 
 const Square = (props) => {
   return (
-    <button className="square" onClick={props.onClick}>
+    <button
+      className={
+        props.value.color && props.showColors ? "square yellow" : "square EE"
+      }
+      onClick={props.onClick}
+    >
       {props.value.value}
     </button>
   );
@@ -18,6 +23,7 @@ const Row = (props) => {
       {props.row.map((col, colIdx) => {
         return (
           <Square
+            showColors={props.showColors}
             key={colIdx}
             value={props.row[colIdx]}
             onClick={() => clicker(props.rowIdx, colIdx)}

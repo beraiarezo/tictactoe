@@ -50,6 +50,9 @@ input {
   text-align: center;
   width: 34px;
 }
+.square.yellow {
+  background-color: yellow;
+}
 
 .square:focus {
   outline: none;
